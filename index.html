@@ -152,13 +152,13 @@
 const DEFAULT={
   periodo:'Agosto – Septiembre – Octubre 2026',mes1:'Agosto',mes2:'Septiembre',mes3:'Octubre',
   ingresos:[
-    {depa:'Depa 1',prop:'Miguel',           monto:1000,p1:true,p2:false,p3:false},
+    {depa:'Depa 1',prop:'Miguel',           monto:1000,p1:true, p2:false,p3:false},
     {depa:'Depa 2',prop:'Monica',           monto:1000,p1:true, p2:true, p3:true },
     {depa:'Depa 3',prop:'Aglae',            monto:1000,p1:true, p2:true, p3:true },
     {depa:'Depa 4',prop:'Monse',            monto:1000,p1:true, p2:true, p3:true },
     {depa:'Depa 5',prop:'Aimee',            monto:1000,p1:true, p2:true, p3:true },
     {depa:'Depa 6',prop:'Santiago',         monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 7',prop:'Gilberto',         monto:1000,p1:true,p2:true,p3:true},
+    {depa:'Depa 7',prop:'Gilberto',         monto:1000,p1:true, p2:true, p3:true },
     {depa:'Depa 8',prop:'Ana Pao & Sergio', monto:1000,p1:false,p2:false,p3:false},
     {depa:'Depa 9',prop:'Liz',              monto:1000,p1:true, p2:true, p3:true },
   ],
@@ -166,6 +166,7 @@ const DEFAULT={
     {concepto:'Pago semanal Sr. Calixto (27 jul – 1 ago)',fecha:'01/08/2026',monto:1400},
     {concepto:'Extra basura de hojas',fecha:'01/08/2026',monto:100},
     {concepto:'Pago semanal Sr. Calixto',fecha:'08/08/2026',monto:1400},
+    {concepto:'Extra gasolina Sr. Calixto',fecha:'11/08/2026',monto:200},
     {concepto:'Pago semanal Sr. Calixto',fecha:'15/08/2026',monto:0},
     {concepto:'Pago semanal Sr. Calixto',fecha:'22/08/2026',monto:0},
     {concepto:'Pago semanal Sr. Calixto',fecha:'29/08/2026',monto:0},
@@ -182,6 +183,7 @@ const DEFAULT={
   otros:[
     {concepto:'Insumos limpieza — Soriana (Clorox, detergente, limpiador)',fecha:'31/07/2026',monto:275.40},
     {concepto:'Insumos limpieza — Quimiklin (escoba, trapeador, fabuloso, bolsas)',fecha:'01/08/2026',monto:674.00},
+    {concepto:'Recibo luz CFE',fecha:'11/08/2026',monto:1050.00},
   ]
 };
 let data=JSON.parse(localStorage.getItem('chichen_ago26')||'null')||JSON.parse(JSON.stringify(DEFAULT));
