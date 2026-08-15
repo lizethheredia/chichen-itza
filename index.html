@@ -167,7 +167,8 @@ const DEFAULT={
     {concepto:'Extra basura de hojas',fecha:'01/08/2026',monto:100},
     {concepto:'Pago semanal Sr. Calixto',fecha:'08/08/2026',monto:1400},
     {concepto:'Extra gasolina Sr. Calixto',fecha:'11/08/2026',monto:200},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'15/08/2026',monto:0},
+    {concepto:'Pago semanal Sr. Calixto',fecha:'15/08/2026',monto:1400},
+    {concepto:'Extra basura pastos y jardines',fecha:'15/08/2026',monto:100},
     {concepto:'Pago semanal Sr. Calixto',fecha:'22/08/2026',monto:0},
     {concepto:'Pago semanal Sr. Calixto',fecha:'29/08/2026',monto:0},
     {concepto:'Pago semanal Sr. Calixto',fecha:'05/09/2026',monto:0},
@@ -276,6 +277,17 @@ function guardar(){
   data.periodo=document.getElementById('periodo').value;
   document.getElementById('footer-periodo').textContent=data.periodo;
   localStorage.setItem('chichen_ago26',JSON.stringify(data));
+  // Descarga index.html con DEFAULT actualizado para no perder datos al cambiar de máquina
+  const html=document.documentElement.outerHTML.replace(
+    /const DEFAULT=\{[\s\S]*?\};(?=\s*let data=)/,
+    'const DEFAULT='+JSON.stringify(data,null,2)+';'
+  );
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='index.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
   const m=document.getElementById('savedMsg');m.style.display='inline';setTimeout(()=>m.style.display='none',2500);
 }
 function resetear(){if(!confirm('¿Regresar a los datos originales?'))return;localStorage.removeItem('chichen_ago26');data=JSON.parse(JSON.stringify(DEFAULT));render();}
