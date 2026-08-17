@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administración Chichén Itzá</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,7 +62,7 @@
 <div class="container">
   <div class="header">
     <h1>🏢 Administración Departamentos Chichén Itzá</h1>
-    <div><input id="periodo" value="Agosto – Septiembre – Octubre 2026"/></div>
+    <div><input id="periodo" value="Agosto – Septiembre – Octubre 2026"></div>
   </div>
   <div class="toolbar">
     <button class="btn btn-save" onclick="guardar()">💾 Guardar</button>
@@ -73,10 +71,10 @@
     <span class="saved-msg" id="savedMsg">✅ Guardado</span>
   </div>
   <div class="cards">
-    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">—</div></div>
-    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">—</div></div>
-    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">—</div></div>
-    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">—</div></div>
+    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$23,000.00</div></div>
+    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$4,000.00</div></div>
+    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$10,564.32</div></div>
+    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$12,435.68</div></div>
   </div>
 
   <!-- Ingresos -->
@@ -86,13 +84,94 @@
     <div class="table-wrap">
       <table>
         <thead><tr><th>Depa</th><th>Propietario</th><th class="c" id="th-m1">Agosto</th><th class="c" id="th-m2">Septiembre</th><th class="c" id="th-m3">Octubre</th><th class="r">Pagado</th><th></th></tr></thead>
-        <tbody id="tbody-ingresos"></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">—</td><td class="c" id="tot-m2">—</td><td class="c" id="tot-m3">—</td><td class="r" id="tot-ing">—</td><td></td></tr></tfoot>
+        <tbody id="tbody-ingresos">
+    <tr>
+      <td><input class="editable" value="Depa 1" onchange="data.ingresos[0].depa=this.value"></td>
+      <td><input class="editable" value="Miguel" onchange="data.ingresos[0].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(0,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(0,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(0,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-0">$1,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',0)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 2" onchange="data.ingresos[1].depa=this.value"></td>
+      <td><input class="editable" value="Monica" onchange="data.ingresos[1].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(1,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(1,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(1,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-1">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',1)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 3" onchange="data.ingresos[2].depa=this.value"></td>
+      <td><input class="editable" value="Aglae" onchange="data.ingresos[2].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(2,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(2,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(2,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-2">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',2)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 4" onchange="data.ingresos[3].depa=this.value"></td>
+      <td><input class="editable" value="Monse" onchange="data.ingresos[3].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(3,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(3,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(3,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-3">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',3)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 5" onchange="data.ingresos[4].depa=this.value"></td>
+      <td><input class="editable" value="Aimee" onchange="data.ingresos[4].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(4,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(4,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(4,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-4">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',4)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 6" onchange="data.ingresos[5].depa=this.value"></td>
+      <td><input class="editable" value="Santiago" onchange="data.ingresos[5].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(5,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(5,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(5,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-5">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',5)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 7" onchange="data.ingresos[6].depa=this.value"></td>
+      <td><input class="editable" value="Gilberto" onchange="data.ingresos[6].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(6,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(6,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(6,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-6">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',6)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 8" onchange="data.ingresos[7].depa=this.value"></td>
+      <td><input class="editable" value="Ana Pao &amp; Sergio" onchange="data.ingresos[7].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-7">$1,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',7)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 9" onchange="data.ingresos[8].depa=this.value"></td>
+      <td><input class="editable" value="Liz" onchange="data.ingresos[8].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p1')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p2')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-8">$3,000.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',8)">✕</button></td>
+    </tr></tbody>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$7,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$23,000.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">0</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;"></span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width:0%"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">23</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">85%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 85%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addIngreso()">+ Departamento</button></div>
   </div>
@@ -106,8 +185,110 @@
     <div class="table-wrap">
       <table>
         <thead><tr><th>Concepto</th><th class="r">Fecha</th><th class="r">Monto</th><th></th></tr></thead>
-        <tbody id="tbody-calixto"></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">—</td><td></td></tr></tfoot>
+        <tbody id="tbody-calixto">
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto (27 jul – 1 ago)" onchange="data.calixto[0].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="01/08/2026" onchange="data.calixto[0].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$1,400.00" placeholder="$0.00" onchange="data.calixto[0].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',0)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Extra basura de hojas" onchange="data.calixto[1].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="01/08/2026" onchange="data.calixto[1].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$100.00" placeholder="$0.00" onchange="data.calixto[1].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',1)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[2].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="08/08/2026" onchange="data.calixto[2].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$1,400.00" placeholder="$0.00" onchange="data.calixto[2].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',2)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Extra gasolina Sr. Calixto" onchange="data.calixto[3].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="11/08/2026" onchange="data.calixto[3].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$200.00" placeholder="$0.00" onchange="data.calixto[3].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',3)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[4].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="15/08/2026" onchange="data.calixto[4].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$1,400.00" placeholder="$0.00" onchange="data.calixto[4].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',4)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Extra basura pastos y jardines" onchange="data.calixto[5].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="15/08/2026" onchange="data.calixto[5].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$100.00" placeholder="$0.00" onchange="data.calixto[5].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',5)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[6].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="22/08/2026" onchange="data.calixto[6].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[6].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',6)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[7].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="29/08/2026" onchange="data.calixto[7].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[7].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',7)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[8].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="05/09/2026" onchange="data.calixto[8].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[8].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',8)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[9].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="12/09/2026" onchange="data.calixto[9].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[9].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',9)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[10].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="19/09/2026" onchange="data.calixto[10].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[10].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',10)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[11].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="26/09/2026" onchange="data.calixto[11].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[11].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',11)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[12].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="03/10/2026" onchange="data.calixto[12].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[12].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',12)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[13].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="10/10/2026" onchange="data.calixto[13].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[13].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',13)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[14].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="17/10/2026" onchange="data.calixto[14].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[14].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',14)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[15].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="24/10/2026" onchange="data.calixto[15].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[15].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',15)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[16].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="31/10/2026" onchange="data.calixto[16].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[16].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('calixto',16)">✕</button></td>
+    </tr></tbody>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$4,600.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addCalixto()">+ Pago</button></div>
@@ -119,8 +300,50 @@
     <div class="table-wrap">
       <table>
         <thead><tr><th>Concepto</th><th class="r">Fecha</th><th class="r">Monto</th><th></th></tr></thead>
-        <tbody id="tbody-otros"></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL OTROS GASTOS</td><td class="r" id="tot-otros">—</td><td></td></tr></tfoot>
+        <tbody id="tbody-otros">
+    <tr>
+      <td><input class="editable" value="Insumos limpieza — Soriana (Clorox, detergente, limpiador)" onchange="data.otros[0].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="31/07/2026" onchange="data.otros[0].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$275.40" onchange="data.otros[0].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',0)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Insumos limpieza — Quimiklin (escoba, trapeador, fabuloso, bolsas)" onchange="data.otros[1].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="01/08/2026" onchange="data.otros[1].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$674.00" onchange="data.otros[1].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',1)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Recibo luz CFE" onchange="data.otros[2].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="11/08/2026" onchange="data.otros[2].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$1,050.00" onchange="data.otros[2].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',2)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Lámpara techo sensor movimiento exterior — Amazon (CALOKES)" onchange="data.otros[3].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="12/08/2026" onchange="data.otros[3].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$1,126.92" onchange="data.otros[3].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',3)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Guarda polvos puerta" onchange="data.otros[4].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="15/08/2026" onchange="data.otros[4].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$338.00" onchange="data.otros[4].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',4)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Electricista instalación lámpara acceso, luces numéros más mano de obra" onchange="data.otros[5].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="17/08/2026" onchange="data.otros[5].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$15,000.00" onchange="data.otros[5].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',5)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="" onchange="data.otros[6].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="" onchange="data.otros[6].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$0.00" onchange="data.otros[6].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',6)">✕</button></td>
+    </tr></tbody>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL OTROS GASTOS</td><td class="r" id="tot-otros">$5,964.32</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addOtro()">+ Gasto</button></div>
@@ -132,11 +355,11 @@
     <div class="table-wrap">
       <table>
         <tbody>
-          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">—</td></tr>
-          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">—</td></tr>
-          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">—</td></tr>
-          <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">—</td></tr>
-          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo">—</td></tr>
+          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$23,000.00</td></tr>
+          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$4,000.00</td></tr>
+          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$4,600.00</td></tr>
+          <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$5,964.32</td></tr>
+          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$12,435.68</td></tr>
         </tbody>
       </table>
     </div>
@@ -144,49 +367,213 @@
 
   <div class="saldo" id="saldo-banner">
     <div class="slabel">Saldo Actual del Trimestre</div>
-    <div class="samount" id="saldo-big">—</div>
+    <div class="samount" id="saldo-big">$12,435.68</div>
   </div>
-  <footer>Administración Chichén Itzá · <span id="footer-periodo"></span></footer>
+  <footer>Administración Chichén Itzá · <span id="footer-periodo">Agosto – Septiembre – Octubre 2026</span></footer>
 </div>
 <script>
 const DEFAULT={
-  periodo:'Agosto – Septiembre – Octubre 2026',mes1:'Agosto',mes2:'Septiembre',mes3:'Octubre',
-  ingresos:[
-    {depa:'Depa 1',prop:'Miguel',           monto:1000,p1:true, p2:false,p3:false},
-    {depa:'Depa 2',prop:'Monica',           monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 3',prop:'Aglae',            monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 4',prop:'Monse',            monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 5',prop:'Aimee',            monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 6',prop:'Santiago',         monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 7',prop:'Gilberto',         monto:1000,p1:true, p2:true, p3:true },
-    {depa:'Depa 8',prop:'Ana Pao & Sergio', monto:1000,p1:false,p2:false,p3:false},
-    {depa:'Depa 9',prop:'Liz',              monto:1000,p1:true, p2:true, p3:true },
+  "periodo": "Agosto – Septiembre – Octubre 2026",
+  "mes1": "Agosto",
+  "mes2": "Septiembre",
+  "mes3": "Octubre",
+  "ingresos": [
+    {
+      "depa": "Depa 1",
+      "prop": "Miguel",
+      "monto": 1000,
+      "p1": true,
+      "p2": false,
+      "p3": false
+    },
+    {
+      "depa": "Depa 2",
+      "prop": "Monica",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 3",
+      "prop": "Aglae",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 4",
+      "prop": "Monse",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 5",
+      "prop": "Aimee",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 6",
+      "prop": "Santiago",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 7",
+      "prop": "Gilberto",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    },
+    {
+      "depa": "Depa 8",
+      "prop": "Ana Pao & Sergio",
+      "monto": 1000,
+      "p1": true,
+      "p2": false,
+      "p3": false
+    },
+    {
+      "depa": "Depa 9",
+      "prop": "Liz",
+      "monto": 1000,
+      "p1": true,
+      "p2": true,
+      "p3": true
+    }
   ],
-  calixto:[
-    {concepto:'Pago semanal Sr. Calixto (27 jul – 1 ago)',fecha:'01/08/2026',monto:1400},
-    {concepto:'Extra basura de hojas',fecha:'01/08/2026',monto:100},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'08/08/2026',monto:1400},
-    {concepto:'Extra gasolina Sr. Calixto',fecha:'11/08/2026',monto:200},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'15/08/2026',monto:1400},
-    {concepto:'Extra basura pastos y jardines',fecha:'15/08/2026',monto:100},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'22/08/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'29/08/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'05/09/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'12/09/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'19/09/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'26/09/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'03/10/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'10/10/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'17/10/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'24/10/2026',monto:0},
-    {concepto:'Pago semanal Sr. Calixto',fecha:'31/10/2026',monto:0},
+  "calixto": [
+    {
+      "concepto": "Pago semanal Sr. Calixto (27 jul – 1 ago)",
+      "fecha": "01/08/2026",
+      "monto": 1400
+    },
+    {
+      "concepto": "Extra basura de hojas",
+      "fecha": "01/08/2026",
+      "monto": 100
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "08/08/2026",
+      "monto": 1400
+    },
+    {
+      "concepto": "Extra gasolina Sr. Calixto",
+      "fecha": "11/08/2026",
+      "monto": 200
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "15/08/2026",
+      "monto": 1400
+    },
+    {
+      "concepto": "Extra basura pastos y jardines",
+      "fecha": "15/08/2026",
+      "monto": 100
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "22/08/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "29/08/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "05/09/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "12/09/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "19/09/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "26/09/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "03/10/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "10/10/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "17/10/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "24/10/2026",
+      "monto": 0
+    },
+    {
+      "concepto": "Pago semanal Sr. Calixto",
+      "fecha": "31/10/2026",
+      "monto": 0
+    }
   ],
-  otros:[
-    {concepto:'Insumos limpieza — Soriana (Clorox, detergente, limpiador)',fecha:'31/07/2026',monto:275.40},
-    {concepto:'Insumos limpieza — Quimiklin (escoba, trapeador, fabuloso, bolsas)',fecha:'01/08/2026',monto:674.00},
-    {concepto:'Recibo luz CFE',fecha:'11/08/2026',monto:1050.00},
-    {concepto:'Lámpara techo sensor movimiento exterior — Amazon (CALOKES)',fecha:'12/08/2026',monto:1126.92},
-    {concepto:'Guarda polvos puerta',fecha:'15/08/2026',monto:338.00},
+  "otros": [
+    {
+      "concepto": "Insumos limpieza — Soriana (Clorox, detergente, limpiador)",
+      "fecha": "31/07/2026",
+      "monto": 275.4
+    },
+    {
+      "concepto": "Insumos limpieza — Quimiklin (escoba, trapeador, fabuloso, bolsas)",
+      "fecha": "01/08/2026",
+      "monto": 674
+    },
+    {
+      "concepto": "Recibo luz CFE",
+      "fecha": "11/08/2026",
+      "monto": 1050
+    },
+    {
+      "concepto": "Lámpara techo sensor movimiento exterior — Amazon (CALOKES)",
+      "fecha": "12/08/2026",
+      "monto": 1126.92
+    },
+    {
+      "concepto": "Guarda polvos puerta",
+      "fecha": "15/08/2026",
+      "monto": 338
+    },
+    {
+      "concepto": "Electricista instalación lámpara acceso, luces numéros más mano de obra",
+      "fecha": "17/08/2026",
+      "monto": 1500
+    },
+    {
+      "concepto": "Pago fontanero por parte arreglo arreglo llave de paso",
+      "fecha": "17/08/2026",
+      "monto": 1000
+    }
   ]
 };
 let data=JSON.parse(localStorage.getItem('chichen_ago26')||'null')||JSON.parse(JSON.stringify(DEFAULT));
@@ -295,5 +682,6 @@ function resetear(){if(!confirm('¿Regresar a los datos originales?'))return;loc
 document.getElementById('periodo').addEventListener('change',function(){data.periodo=this.value;document.getElementById('footer-periodo').textContent=this.value;});
 render();
 </script>
-</body>
-</html>
+
+
+</body></html>
