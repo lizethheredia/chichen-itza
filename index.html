@@ -71,10 +71,10 @@
     <span class="saved-msg" id="savedMsg">✅ Guardado</span>
   </div>
   <div class="cards">
-    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$23,000.00</div></div>
-    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$4,000.00</div></div>
-    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$11,964.32</div></div>
-    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$11,035.68</div></div>
+    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$24,000.00</div></div>
+    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$3,000.00</div></div>
+    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$13,364.32</div></div>
+    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$10,635.68</div></div>
   </div>
 
   <!-- Ingresos -->
@@ -89,9 +89,9 @@
       <td><input class="editable" value="Depa 1" onchange="data.ingresos[0].depa=this.value"></td>
       <td><input class="editable" value="Miguel" onchange="data.ingresos[0].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(0,'p1')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(0,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(0,'p2')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(0,'p3')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-tot-0">$1,000.00</td>
+      <td class="r" id="row-tot-0">$2,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',0)">✕</button></td>
     </tr>
     <tr>
@@ -166,12 +166,12 @@
       <td class="r" id="row-tot-8">$3,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',8)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$7,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$23,000.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$8,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$24,000.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">23</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">85%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 85%;"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">24</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">89%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 89%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addIngreso()">+ Departamento</button></div>
   </div>
@@ -225,7 +225,7 @@
     <tr>
       <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[6].concepto=this.value"></td>
       <td class="r"><input class="editable r" value="22/08/2026" onchange="data.calixto[6].fecha=this.value"></td>
-      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[6].monto=num(this.value);recalc()"></td>
+      <td class="r"><input class="editable r" value="$1,400.00" placeholder="$0.00" onchange="data.calixto[6].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('calixto',6)">✕</button></td>
     </tr>
     <tr>
@@ -294,7 +294,7 @@
       <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[17].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('calixto',17)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$6,000.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$7,400.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addCalixto()">+ Pago</button></div>
@@ -361,11 +361,11 @@
     <div class="table-wrap">
       <table>
         <tbody>
-          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$23,000.00</td></tr>
-          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$4,000.00</td></tr>
-          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$6,000.00</td></tr>
+          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$24,000.00</td></tr>
+          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$3,000.00</td></tr>
+          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$7,400.00</td></tr>
           <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$5,964.32</td></tr>
-          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$11,035.68</td></tr>
+          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$10,635.68</td></tr>
         </tbody>
       </table>
     </div>
@@ -373,7 +373,7 @@
 
   <div class="saldo" id="saldo-banner">
     <div class="slabel">Saldo Actual del Trimestre</div>
-    <div class="samount" id="saldo-big">$11,035.68</div>
+    <div class="samount" id="saldo-big">$10,635.68</div>
   </div>
   <footer>Administración Chichén Itzá · <span id="footer-periodo">Agosto – Septiembre – Octubre 2026</span></footer>
 </div>
@@ -389,7 +389,7 @@ const DEFAULT={
       "prop": "Miguel",
       "monto": 1000,
       "p1": true,
-      "p2": false,
+      "p2": true,
       "p3": false
     },
     {
@@ -496,7 +496,7 @@ const DEFAULT={
     {
       "concepto": "Pago semanal Sr. Calixto",
       "fecha": "29/08/2026",
-      "monto": 0
+      "monto": 1400
     },
     {
       "concepto": "Pago semanal Sr. Calixto",
