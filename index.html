@@ -153,8 +153,8 @@
       <td><input class="editable" value="Ana Pao &amp; Sergio" onchange="data.ingresos[7].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p1')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p2')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p3')">✅ Pagado</button></div></td>
-      <td class="r" id="row-tot-7">$3,000.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-7">$2,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',7)">✕</button></td>
     </tr>
     <tr>
@@ -162,8 +162,8 @@
       <td><input class="editable" value="Liz" onchange="data.ingresos[8].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p1')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p2')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(8,'p3')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-tot-8">$2,000.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-8">$3,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',8)">✕</button></td>
     </tr></tbody>
         <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$9,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$25,000.00</td><td></td></tr></tfoot>
@@ -557,7 +557,7 @@ const DEFAULT={
       "monto": 1000,
       "p1": true,
       "p2": true,
-      "p3": true
+      "p3": false
     },
     {
       "depa": "Depa 9",
@@ -565,7 +565,7 @@ const DEFAULT={
       "monto": 1000,
       "p1": true,
       "p2": true,
-      "p3": false
+      "p3": true
     }
   ],
   "herreria": [
