@@ -68,13 +68,13 @@
     <button class="btn btn-save" onclick="guardar()">💾 Guardar</button>
     <button class="btn btn-print" onclick="window.print()">🖨️ PDF</button>
     <button class="btn btn-reset" onclick="resetear()">🗑️ Reset</button>
-    <span class="saved-msg" id="savedMsg">✅ Guardado</span>
+    <span class="saved-msg" id="savedMsg" style="display: none;">✅ Guardado</span>
   </div>
   <div class="cards">
-    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$24,000.00</div></div>
-    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$3,000.00</div></div>
-    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$13,364.32</div></div>
-    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$10,635.68</div></div>
+    <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$25,000.00</div></div>
+    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$5,000.00</div></div>
+    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$14,864.32</div></div>
+    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$10,135.68</div></div>
   </div>
 
   <!-- Ingresos -->
@@ -152,9 +152,9 @@
       <td><input class="editable" value="Depa 8" onchange="data.ingresos[7].depa=this.value"></td>
       <td><input class="editable" value="Ana Pao &amp; Sergio" onchange="data.ingresos[7].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p1')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p2')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p3')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-tot-7">$1,000.00</td>
+      <td class="r" id="row-tot-7">$2,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',7)">✕</button></td>
     </tr>
     <tr>
@@ -165,15 +165,117 @@
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p3')">✅ Pagado</button></div></td>
       <td class="r" id="row-tot-8">$3,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',8)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 10" onchange="data.ingresos[9].depa=this.value"></td>
+      <td><input class="editable" value="" onchange="data.ingresos[9].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p1')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-9">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',9)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$8,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$24,000.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$9,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$25,000.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">24</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">89%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 89%;"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">25</b>/<b id="prog-total">30</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">83%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 83%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addIngreso()">+ Departamento</button></div>
+  </div>
+
+  <!-- Herrería - Aportación Extra -->
+  <div class="section">
+    <div class="section-title">
+      🔩 Aportación Extra — Herrería Medidores
+      <span class="sueldo-badge">$1,200 c/u · 9 deptos</span>
+    </div>
+    <div style="padding:8px 14px 2px;font-size:0.75rem;color:#888;">Aportación independiente del mantenimiento regular, no forma parte del saldo general. Instalación y fijación de la estructura: Sr. Gustavo.</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Depa</th><th>Propietario</th><th class="c">Anticipo 65%</th><th class="c">Resto 35%</th><th class="r">Pagado</th><th></th></tr></thead>
+        <tbody id="tbody-herreria">
+    <tr>
+      <td><input class="editable" value="Depa 1" onchange="data.herreria[0].depa=this.value"></td>
+      <td><input class="editable" value="Miguel" onchange="data.herreria[0].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(0,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(0,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-0">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',0)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 2" onchange="data.herreria[1].depa=this.value"></td>
+      <td><input class="editable" value="Monica" onchange="data.herreria[1].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(1,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(1,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-1">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',1)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 3" onchange="data.herreria[2].depa=this.value"></td>
+      <td><input class="editable" value="Aglae" onchange="data.herreria[2].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(2,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(2,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-2">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',2)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 4" onchange="data.herreria[3].depa=this.value"></td>
+      <td><input class="editable" value="Monse" onchange="data.herreria[3].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(3,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(3,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-3">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',3)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 5" onchange="data.herreria[4].depa=this.value"></td>
+      <td><input class="editable" value="Aimee" onchange="data.herreria[4].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(4,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(4,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-4">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',4)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 6" onchange="data.herreria[5].depa=this.value"></td>
+      <td><input class="editable" value="Santiago" onchange="data.herreria[5].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(5,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(5,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-5">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',5)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 7" onchange="data.herreria[6].depa=this.value"></td>
+      <td><input class="editable" value="Gilberto" onchange="data.herreria[6].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(6,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(6,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-6">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',6)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 8" onchange="data.herreria[7].depa=this.value"></td>
+      <td><input class="editable" value="Ana Pao &amp; Sergio" onchange="data.herreria[7].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(7,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(7,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-7">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',7)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 9" onchange="data.herreria[8].depa=this.value"></td>
+      <td><input class="editable" value="Liz" onchange="data.herreria[8].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(8,'pa')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(8,'pr')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-herr-8">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('herreria',8)">✕</button></td>
+    </tr></tbody>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL RECOLECTADO</td><td class="c" id="tot-herr-a">$0.00</td><td class="c" id="tot-herr-r">$0.00</td><td class="r" id="tot-herreria">$0.00</td><td></td></tr></tfoot>
+      </table>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-info">Pagos recibidos: <b id="prog-herr-cobrado">0</b>/<b id="prog-herr-total">18</b> &nbsp;<span id="prog-herr-pct" style="color:#27ae60;font-weight:700;">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-herr-bar" style="width: 0%;"></div></div>
+    </div>
+    <div class="section-pad"><button class="btn btn-add" onclick="addHerreria()">+ Depa Herrería</button></div>
   </div>
 
   <!-- Calixto -->
@@ -231,7 +333,7 @@
     <tr>
       <td><input class="editable" value="Pago semanal Sr. Calixto" onchange="data.calixto[7].concepto=this.value"></td>
       <td class="r"><input class="editable r" value="29/08/2026" onchange="data.calixto[7].fecha=this.value"></td>
-      <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[7].monto=num(this.value);recalc()"></td>
+      <td class="r"><input class="editable r" value="$1,400.00" placeholder="$0.00" onchange="data.calixto[7].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('calixto',7)">✕</button></td>
     </tr>
     <tr>
@@ -294,7 +396,7 @@
       <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[17].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('calixto',17)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$7,400.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$8,900.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addCalixto()">+ Pago</button></div>
@@ -348,6 +450,18 @@
       <td class="r"><input class="editable r" value="17/08/2026" onchange="data.otros[6].fecha=this.value"></td>
       <td class="r"><input class="editable r" value="$1,000.00" onchange="data.otros[6].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('otros',6)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Adelanto Administración — Robo de medidores (Depa 2, 3, 5, 8)" onchange="data.otros[7].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="" onchange="data.otros[7].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$3,000.00" onchange="data.otros[7].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',7)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Reembolso robo de medidores — 4 deptos afectados (Depa 2, 3, 5, 8)" onchange="data.otros[8].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="" onchange="data.otros[8].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="-$3,000.00" onchange="data.otros[8].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',8)">✕</button></td>
     </tr></tbody>
         <tfoot><tr class="total-row"><td colspan="2">TOTAL OTROS GASTOS</td><td class="r" id="tot-otros">$5,964.32</td><td></td></tr></tfoot>
       </table>
@@ -361,11 +475,11 @@
     <div class="table-wrap">
       <table>
         <tbody>
-          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$24,000.00</td></tr>
-          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$3,000.00</td></tr>
-          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$7,400.00</td></tr>
+          <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$25,000.00</td></tr>
+          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$5,000.00</td></tr>
+          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$8,900.00</td></tr>
           <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$5,964.32</td></tr>
-          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$10,635.68</td></tr>
+          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$10,135.68</td></tr>
         </tbody>
       </table>
     </div>
@@ -373,7 +487,7 @@
 
   <div class="saldo" id="saldo-banner">
     <div class="slabel">Saldo Actual del Trimestre</div>
-    <div class="samount" id="saldo-big">$10,635.68</div>
+    <div class="samount" id="saldo-big">$10,135.68</div>
   </div>
   <footer>Administración Chichén Itzá · <span id="footer-periodo">Agosto – Septiembre – Octubre 2026</span></footer>
 </div>
@@ -445,8 +559,8 @@ const DEFAULT={
       "prop": "Ana Pao & Sergio",
       "monto": 1000,
       "p1": true,
-      "p2": false,
-      "p3": false
+      "p2": true,
+      "p3": true
     },
     {
       "depa": "Depa 9",
@@ -455,7 +569,26 @@ const DEFAULT={
       "p1": true,
       "p2": true,
       "p3": true
+    },
+    {
+      "depa": "Depa 10",
+      "prop": "",
+      "monto": 1000,
+      "p1": false,
+      "p2": false,
+      "p3": false
     }
+  ],
+  "herreria": [
+    { "depa": "Depa 1", "prop": "Miguel", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 2", "prop": "Monica", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 3", "prop": "Aglae", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 4", "prop": "Monse", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 5", "prop": "Aimee", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 6", "prop": "Santiago", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 7", "prop": "Gilberto", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 8", "prop": "Ana Pao & Sergio", "anticipo": 780, "resto": 420, "pa": false, "pr": false },
+    { "depa": "Depa 9", "prop": "Liz", "anticipo": 780, "resto": 420, "pa": false, "pr": false }
   ],
   "calixto": [
     {
@@ -501,7 +634,12 @@ const DEFAULT={
     {
       "concepto": "Pago semanal Sr. Calixto",
       "fecha": "05/09/2026",
-      "monto": 0
+      "monto": 1400
+    },
+    {
+      "concepto": "Extra basura",
+      "fecha": "05/09/2026",
+      "monto": 100
     },
     {
       "concepto": "Pago semanal Sr. Calixto",
@@ -584,10 +722,20 @@ const DEFAULT={
       "concepto": "Pago fontanero por parte arreglo arreglo llave de paso",
       "fecha": "17/08/2026",
       "monto": 1000
+    },
+    {
+      "concepto": "Adelanto Administración — Robo de medidores (Depa 2, 3, 5, 8)",
+      "fecha": "",
+      "monto": 3000
+    },
+    {
+      "concepto": "Reembolso robo de medidores — 4 deptos afectados (Depa 2, 3, 5, 8)",
+      "fecha": "",
+      "monto": -3000
     }
   ]
 };
-let data=JSON.parse(localStorage.getItem('chichen_ago26')||'null')||JSON.parse(JSON.stringify(DEFAULT));
+let data=JSON.parse(localStorage.getItem('chichen_ago26_v2')||'null')||JSON.parse(JSON.stringify(DEFAULT));
 const fmt=n=>'$'+Number(n||0).toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
 const num=s=>parseFloat(String(s).replace(/[$,]/g,''))||0;
 function render(){
@@ -596,7 +744,7 @@ function render(){
   document.getElementById('th-m1').textContent=data.mes1;
   document.getElementById('th-m2').textContent=data.mes2;
   document.getElementById('th-m3').textContent=data.mes3;
-  renderIngresos();renderCalixto();renderOtros();recalc();
+  renderIngresos();renderHerreria();renderCalixto();renderOtros();recalc();
 }
 function statusBtn(paid,idx,mes){
   return `<button class="badge-status ${paid?'paid':'pending'}" onclick="togglePago(${idx},'p${mes}')">${paid?'✅ Pagado':'⏳ Pendiente'}</button>`;
@@ -611,6 +759,20 @@ function renderIngresos(){
       <td class="c"><div class="status-cell"><span class="amount-small">${fmt(r.monto)}</span>${statusBtn(r.p3,i,3)}</div></td>
       <td class="r" id="row-tot-${i}"></td>
       <td><button class="del-btn" onclick="delRow('ingresos',${i})">✕</button></td>
+    </tr>`).join('');
+}
+function herrStatusBtn(paid,idx,campo){
+  return `<button class="badge-status ${paid?'paid':'pending'}" onclick="toggleHerreria(${idx},'${campo}')">${paid?'✅ Pagado':'⏳ Pendiente'}</button>`;
+}
+function renderHerreria(){
+  document.getElementById('tbody-herreria').innerHTML=data.herreria.map((r,i)=>`
+    <tr>
+      <td><input class="editable" value="${r.depa}" onchange="data.herreria[${i}].depa=this.value"/></td>
+      <td><input class="editable" value="${r.prop}" onchange="data.herreria[${i}].prop=this.value"/></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">${fmt(r.anticipo)}</span>${herrStatusBtn(r.pa,i,'pa')}</div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">${fmt(r.resto)}</span>${herrStatusBtn(r.pr,i,'pr')}</div></td>
+      <td class="r" id="row-herr-${i}"></td>
+      <td><button class="del-btn" onclick="delRow('herreria',${i})">✕</button></td>
     </tr>`).join('');
 }
 function renderCalixto(){
@@ -632,6 +794,7 @@ function renderOtros(){
     </tr>`).join('');
 }
 function togglePago(idx,mes){data.ingresos[idx][mes]=!data.ingresos[idx][mes];renderIngresos();recalc();}
+function toggleHerreria(idx,campo){data.herreria[idx][campo]=!data.herreria[idx][campo];renderHerreria();recalc();}
 function recalc(){
   let cobrado=0,pendiente=0,totM1=0,totM2=0,totM3=0,hechos=0,total=0;
   data.ingresos.forEach((r,i)=>{
@@ -645,6 +808,26 @@ function recalc(){
   document.getElementById('tot-m2').textContent=fmt(totM2);
   document.getElementById('tot-m3').textContent=fmt(totM3);
   document.getElementById('tot-ing').textContent=fmt(cobrado);
+
+  let herrCobrado=0,herrTotalPagos=0,herrHechos=0,herrTotA=0,herrTotR=0;
+  data.herreria.forEach((r,i)=>{
+    const a=num(r.anticipo),b=num(r.resto);
+    herrTotalPagos+=2;
+    const pag=(r.pa?a:0)+(r.pr?b:0);
+    herrCobrado+=pag;
+    if(r.pa){herrHechos++;herrTotA+=a;}
+    if(r.pr){herrHechos++;herrTotR+=b;}
+    const elh=document.getElementById(`row-herr-${i}`);if(elh)elh.textContent=fmt(pag);
+  });
+  document.getElementById('tot-herr-a').textContent=fmt(herrTotA);
+  document.getElementById('tot-herr-r').textContent=fmt(herrTotR);
+  document.getElementById('tot-herreria').textContent=fmt(herrCobrado);
+  const herrPct=herrTotalPagos?Math.round(herrHechos/herrTotalPagos*100):0;
+  document.getElementById('prog-herr-cobrado').textContent=herrHechos;
+  document.getElementById('prog-herr-total').textContent=herrTotalPagos;
+  document.getElementById('prog-herr-pct').textContent=herrPct+'%';
+  document.getElementById('prog-herr-bar').style.width=herrPct+'%';
+
   const totCal=data.calixto.reduce((s,r)=>s+num(r.monto),0);
   const totOtro=data.otros.reduce((s,r)=>s+num(r.monto),0);
   const gastos=totCal+totOtro,saldo=cobrado-gastos;
@@ -669,13 +852,14 @@ function recalc(){
   document.getElementById('prog-bar').style.width=pct+'%';
 }
 function addIngreso(){data.ingresos.push({depa:`Depa ${data.ingresos.length+1}`,prop:'',monto:1000,p1:false,p2:false,p3:false});renderIngresos();recalc();}
+function addHerreria(){data.herreria.push({depa:`Depa ${data.herreria.length+1}`,prop:'',anticipo:780,resto:420,pa:false,pr:false});renderHerreria();recalc();}
 function addCalixto(){data.calixto.push({concepto:'Pago semanal Sr. Calixto',fecha:'',monto:0});renderCalixto();recalc();}
 function addOtro(){data.otros.push({concepto:'',fecha:'',monto:0});renderOtros();recalc();}
-function delRow(t,i){data[t].splice(i,1);if(t==='ingresos'){renderIngresos();}else if(t==='calixto'){renderCalixto();}else{renderOtros();}recalc();}
+function delRow(t,i){data[t].splice(i,1);if(t==='ingresos'){renderIngresos();}else if(t==='herreria'){renderHerreria();}else if(t==='calixto'){renderCalixto();}else{renderOtros();}recalc();}
 function guardar(){
   data.periodo=document.getElementById('periodo').value;
   document.getElementById('footer-periodo').textContent=data.periodo;
-  localStorage.setItem('chichen_ago26',JSON.stringify(data));
+  localStorage.setItem('chichen_ago26_v2',JSON.stringify(data));
   // Descarga index.html con DEFAULT actualizado para no perder datos al cambiar de máquina
   const html=document.documentElement.outerHTML.replace(
     /const DEFAULT=\{[\s\S]*?\};(?=\s*let data=)/,
@@ -689,7 +873,7 @@ function guardar(){
   URL.revokeObjectURL(a.href);
   const m=document.getElementById('savedMsg');m.style.display='inline';setTimeout(()=>m.style.display='none',2500);
 }
-function resetear(){if(!confirm('¿Regresar a los datos originales?'))return;localStorage.removeItem('chichen_ago26');data=JSON.parse(JSON.stringify(DEFAULT));render();}
+function resetear(){if(!confirm('¿Regresar a los datos originales?'))return;localStorage.removeItem('chichen_ago26_v2');data=JSON.parse(JSON.stringify(DEFAULT));render();}
 document.getElementById('periodo').addEventListener('change',function(){data.periodo=this.value;document.getElementById('footer-periodo').textContent=this.value;});
 render();
 </script>
