@@ -72,7 +72,7 @@
   </div>
   <div class="cards">
     <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$25,000.00</div></div>
-    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$2,000.00</div></div>
+    <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$5,000.00</div></div>
     <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$14,864.32</div></div>
     <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$10,135.68</div></div>
   </div>
@@ -153,8 +153,8 @@
       <td><input class="editable" value="Ana Pao &amp; Sergio" onchange="data.ingresos[7].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p1')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p2')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(7,'p3')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-tot-7">$2,000.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(7,'p3')">✅ Pagado</button></div></td>
+      <td class="r" id="row-tot-7">$3,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',7)">✕</button></td>
     </tr>
     <tr>
@@ -162,16 +162,25 @@
       <td><input class="editable" value="Liz" onchange="data.ingresos[8].prop=this.value"></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p1')">✅ Pagado</button></div></td>
       <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p2')">✅ Pagado</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status paid" onclick="togglePago(8,'p3')">✅ Pagado</button></div></td>
-      <td class="r" id="row-tot-8">$3,000.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(8,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-8">$2,000.00</td>
       <td><button class="del-btn" onclick="delRow('ingresos',8)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Depa 10" onchange="data.ingresos[9].depa=this.value"></td>
+      <td><input class="editable" value="" onchange="data.ingresos[9].prop=this.value"></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p1')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p2')">⏳ Pendiente</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$1,000.00</span><button class="badge-status pending" onclick="togglePago(9,'p3')">⏳ Pendiente</button></div></td>
+      <td class="r" id="row-tot-9">$0.00</td>
+      <td><button class="del-btn" onclick="delRow('ingresos',9)">✕</button></td>
     </tr></tbody>
         <tfoot><tr class="total-row"><td colspan="2">TOTAL</td><td class="c" id="tot-m1">$9,000.00</td><td class="c" id="tot-m2">$9,000.00</td><td class="c" id="tot-m3">$7,000.00</td><td class="r" id="tot-ing">$25,000.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">25</b>/<b id="prog-total">27</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">93%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 93%;"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-cobrado">25</b>/<b id="prog-total">30</b> &nbsp;<span id="prog-pct" style="color:#27ae60;font-weight:700;">83%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-bar" style="width: 83%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addIngreso()">+ Departamento</button></div>
   </div>
@@ -206,9 +215,9 @@
     <tr>
       <td><input class="editable" value="Depa 3" onchange="data.herreria[2].depa=this.value"></td>
       <td><input class="editable" value="Aglae" onchange="data.herreria[2].prop=this.value"></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(2,'pa')">⏳ Pendiente</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(2,'pr')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-herr-2">$0.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status paid" onclick="toggleHerreria(2,'pa')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status paid" onclick="toggleHerreria(2,'pr')">✅ Pagado</button></div></td>
+      <td class="r" id="row-herr-2">$1,200.00</td>
       <td><button class="del-btn" onclick="delRow('herreria',2)">✕</button></td>
     </tr>
     <tr>
@@ -259,12 +268,12 @@
       <td class="r" id="row-herr-8">$1,200.00</td>
       <td><button class="del-btn" onclick="delRow('herreria',8)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL RECOLECTADO</td><td class="c" id="tot-herr-a">$780.00</td><td class="c" id="tot-herr-r">$420.00</td><td class="r" id="tot-herreria">$1,200.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL RECOLECTADO</td><td class="c" id="tot-herr-a">$1,560.00</td><td class="c" id="tot-herr-r">$840.00</td><td class="r" id="tot-herreria">$2,400.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-herr-cobrado">2</b>/<b id="prog-herr-total">18</b> &nbsp;<span id="prog-herr-pct" style="color:#27ae60;font-weight:700;">11%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-herr-bar" style="width: 11%;"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-herr-cobrado">4</b>/<b id="prog-herr-total">18</b> &nbsp;<span id="prog-herr-pct" style="color:#27ae60;font-weight:700;">22%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-herr-bar" style="width: 22%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addHerreria()">+ Depa Herrería</button></div>
   </div>
@@ -473,7 +482,7 @@
       <table>
         <tbody>
           <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$25,000.00</td></tr>
-          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$2,000.00</td></tr>
+          <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$5,000.00</td></tr>
           <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$8,900.00</td></tr>
           <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$5,964.32</td></tr>
           <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$10,135.68</td></tr>
@@ -557,7 +566,7 @@ const DEFAULT={
       "monto": 1000,
       "p1": true,
       "p2": true,
-      "p3": false
+      "p3": true
     },
     {
       "depa": "Depa 9",
@@ -565,7 +574,15 @@ const DEFAULT={
       "monto": 1000,
       "p1": true,
       "p2": true,
-      "p3": true
+      "p3": false
+    },
+    {
+      "depa": "Depa 10",
+      "prop": "",
+      "monto": 1000,
+      "p1": false,
+      "p2": false,
+      "p3": false
     }
   ],
   "herreria": [
@@ -590,8 +607,8 @@ const DEFAULT={
       "prop": "Aglae",
       "anticipo": 780,
       "resto": 420,
-      "pa": false,
-      "pr": false
+      "pa": true,
+      "pr": true
     },
     {
       "depa": "Depa 4",
@@ -777,12 +794,12 @@ const DEFAULT={
     },
     {
       "concepto": "Adelanto Administración — Robo de medidores (Depa 2, 3, 5, 8)",
-      "fecha": "07/09/2026",
+      "fecha": "",
       "monto": 3000
     },
     {
       "concepto": "Reembolso robo de medidores — 4 deptos afectados (Depa 2, 3, 5, 8)",
-      "fecha": "07/09/26",
+      "fecha": "",
       "monto": -3000
     }
   ]
