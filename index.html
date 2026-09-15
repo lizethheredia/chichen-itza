@@ -73,8 +73,8 @@
   <div class="cards">
     <div class="card green"><div class="label">Cobrado</div><div class="value" id="card-cobrado">$25,000.00</div></div>
     <div class="card blue"><div class="label">Por cobrar</div><div class="value" id="card-pendiente">$2,000.00</div></div>
-    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$14,864.32</div></div>
-    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$10,135.68</div></div>
+    <div class="card red"><div class="label">Gastos</div><div class="value" id="card-gastos">$16,839.32</div></div>
+    <div class="card gold"><div class="label">Saldo</div><div class="value" id="card-saldo">$8,160.68</div></div>
   </div>
 
   <!-- Ingresos -->
@@ -230,17 +230,17 @@
     <tr>
       <td><input class="editable" value="Depa 6" onchange="data.herreria[5].depa=this.value"></td>
       <td><input class="editable" value="Santiago" onchange="data.herreria[5].prop=this.value"></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(5,'pa')">⏳ Pendiente</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(5,'pr')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-herr-5">$0.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status paid" onclick="toggleHerreria(5,'pa')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status paid" onclick="toggleHerreria(5,'pr')">✅ Pagado</button></div></td>
+      <td class="r" id="row-herr-5">$1,200.00</td>
       <td><button class="del-btn" onclick="delRow('herreria',5)">✕</button></td>
     </tr>
     <tr>
       <td><input class="editable" value="Depa 7" onchange="data.herreria[6].depa=this.value"></td>
       <td><input class="editable" value="Gilberto" onchange="data.herreria[6].prop=this.value"></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status pending" onclick="toggleHerreria(6,'pa')">⏳ Pendiente</button></div></td>
-      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status pending" onclick="toggleHerreria(6,'pr')">⏳ Pendiente</button></div></td>
-      <td class="r" id="row-herr-6">$0.00</td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$780.00</span><button class="badge-status paid" onclick="toggleHerreria(6,'pa')">✅ Pagado</button></div></td>
+      <td class="c"><div class="status-cell"><span class="amount-small">$420.00</span><button class="badge-status paid" onclick="toggleHerreria(6,'pr')">✅ Pagado</button></div></td>
+      <td class="r" id="row-herr-6">$1,200.00</td>
       <td><button class="del-btn" onclick="delRow('herreria',6)">✕</button></td>
     </tr>
     <tr>
@@ -259,12 +259,12 @@
       <td class="r" id="row-herr-8">$1,200.00</td>
       <td><button class="del-btn" onclick="delRow('herreria',8)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL RECOLECTADO</td><td class="c" id="tot-herr-a">$4,680.00</td><td class="c" id="tot-herr-r">$2,520.00</td><td class="r" id="tot-herreria">$7,200.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL RECOLECTADO</td><td class="c" id="tot-herr-a">$6,240.00</td><td class="c" id="tot-herr-r">$3,360.00</td><td class="r" id="tot-herreria">$9,600.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="progress-wrap">
-      <div class="progress-info">Pagos recibidos: <b id="prog-herr-cobrado">12</b>/<b id="prog-herr-total">18</b> &nbsp;<span id="prog-herr-pct" style="color:#27ae60;font-weight:700;">67%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-herr-bar" style="width: 67%;"></div></div>
+      <div class="progress-info">Pagos recibidos: <b id="prog-herr-cobrado">16</b>/<b id="prog-herr-total">18</b> &nbsp;<span id="prog-herr-pct" style="color:#27ae60;font-weight:700;">89%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-herr-bar" style="width: 89%;"></div></div>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addHerreria()">+ Depa Herrería</button></div>
   </div>
@@ -393,7 +393,7 @@
       <td class="r"><input class="editable r" value="" placeholder="$0.00" onchange="data.calixto[18].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('calixto',18)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$8,900.00</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL PAGADO A CALIXTO</td><td class="r" id="tot-calixto">$10,400.00</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addCalixto()">+ Pago</button></div>
@@ -459,8 +459,20 @@
       <td class="r"><input class="editable r" value="" onchange="data.otros[8].fecha=this.value"></td>
       <td class="r"><input class="editable r" value="$-3,000.00" onchange="data.otros[8].monto=num(this.value);recalc()"></td>
       <td><button class="del-btn" onclick="delRow('otros',8)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="Trapeador nuevo" onchange="data.otros[9].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="13/09/2026" onchange="data.otros[9].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$55.00" onchange="data.otros[9].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',9)">✕</button></td>
+    </tr>
+    <tr>
+      <td><input class="editable" value="" onchange="data.otros[10].concepto=this.value"></td>
+      <td class="r"><input class="editable r" value="" onchange="data.otros[10].fecha=this.value"></td>
+      <td class="r"><input class="editable r" value="$0.00" onchange="data.otros[10].monto=num(this.value);recalc()"></td>
+      <td><button class="del-btn" onclick="delRow('otros',10)">✕</button></td>
     </tr></tbody>
-        <tfoot><tr class="total-row"><td colspan="2">TOTAL OTROS GASTOS</td><td class="r" id="tot-otros">$5,964.32</td><td></td></tr></tfoot>
+        <tfoot><tr class="total-row"><td colspan="2">TOTAL OTROS GASTOS</td><td class="r" id="tot-otros">$6,439.32</td><td></td></tr></tfoot>
       </table>
     </div>
     <div class="section-pad"><button class="btn btn-add" onclick="addOtro()">+ Gasto</button></div>
@@ -474,9 +486,9 @@
         <tbody>
           <tr><td>Total cobrado</td><td class="r" style="color:#27ae60;font-weight:700;" id="res-cob">+$25,000.00</td></tr>
           <tr><td>Por cobrar</td><td class="r" style="color:#e67e22;font-weight:700;" id="res-pend">$2,000.00</td></tr>
-          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$8,900.00</td></tr>
-          <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$5,964.32</td></tr>
-          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$10,135.68</td></tr>
+          <tr><td>Pagado a Sr. Calixto</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-cal">−$10,400.00</td></tr>
+          <tr><td>Otros gastos</td><td class="r" style="color:#c0392b;font-weight:700;" id="res-otro">−$6,439.32</td></tr>
+          <tr class="total-row"><td>SALDO ACTUAL</td><td class="r" id="res-saldo" style="color: rgb(39, 174, 96);">$8,160.68</td></tr>
         </tbody>
       </table>
     </div>
@@ -484,7 +496,7 @@
 
   <div class="saldo" id="saldo-banner">
     <div class="slabel">Saldo Actual del Trimestre</div>
-    <div class="samount" id="saldo-big">$10,135.68</div>
+    <div class="samount" id="saldo-big">$8,160.68</div>
   </div>
   <footer>Administración Chichén Itzá · <span id="footer-periodo">Agosto – Septiembre – Octubre 2026</span></footer>
 </div>
@@ -614,16 +626,16 @@ const DEFAULT={
       "prop": "Santiago",
       "anticipo": 780,
       "resto": 420,
-      "pa": false,
-      "pr": false
+      "pa": true,
+      "pr": true
     },
     {
       "depa": "Depa 7",
       "prop": "Gilberto",
       "anticipo": 780,
       "resto": 420,
-      "pa": false,
-      "pr": false
+      "pa": true,
+      "pr": true
     },
     {
       "depa": "Depa 8",
@@ -696,12 +708,12 @@ const DEFAULT={
     {
       "concepto": "Pago semanal Sr. Calixto",
       "fecha": "12/09/2026",
-      "monto": 0
+      "monto": 1400
     },
     {
-      "concepto": "Pago semanal Sr. Calixto",
+      "concepto": "Extra basura jardín",
       "fecha": "19/09/2026",
-      "monto": 0
+      "monto": 100
     },
     {
       "concepto": "Pago semanal Sr. Calixto",
@@ -784,6 +796,16 @@ const DEFAULT={
       "concepto": "Reembolso robo de medidores — 4 deptos afectados (Depa 2, 3, 5, 8)",
       "fecha": "",
       "monto": -3000
+    },
+    {
+      "concepto": "Trapeador nuevo",
+      "fecha": "13/09/2026",
+      "monto": 55
+    },
+    {
+      "concepto": "Escoba nueva jardín",
+      "fecha": "13/09/2026",
+      "monto": 420
     }
   ]
 };
